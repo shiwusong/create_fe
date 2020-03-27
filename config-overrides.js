@@ -10,12 +10,27 @@ paths.appHtml = path.join(paths.appPublic, 'index.html')
 paths.appIndexJs = path.join(paths.appSrc, 'entry.js')
 
 /* config-overrides.js */
-module.exports = function override(config, env) {
-  const { ANALYZE } = process.env
-  if (ANALYZE === '1')
-    config.plugins.push(new BundleAnalyzerPlugin())
-  // throw new Error()
+module.exports = {
+  webpack: (config, env) => {
+    const { ANALYZE } = process.env
+    if (ANALYZE === '1')
+      config.plugins.push(new BundleAnalyzerPlugin())
+    // throw new Error()
 
-  //do stuff with the webpack config...
-  return config;
+    //do stuff with the webpack config...
+    return config;
+  },
+  devServer: configFunction => {
+    return (proxy, allowedHost) => {
+      proxy = {
+        '/api': {
+          target: 'http://localhost:3001',
+        },
+      }
+      const config = configFunction(proxy, allowedHost);
+      return config;
+    }
+  }
 }
+
+require('./index.js')
