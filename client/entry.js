@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Page1 from './pages'
 import Demo from './pages/demo'
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,6 +11,7 @@ import {
 
 import * as serviceWorker from './serviceWorker';
 
+const appName = 'jiaoliudian'
 ReactDOM.render(
   <React.StrictMode>
   <Router>
@@ -19,22 +19,25 @@ ReactDOM.render(
         <nav>
           <ul>
             <li>
-              <Link to="/">Page1</Link>
+              <Link to={"/"}>Page1</Link>
             </li>
             <li>
-              <Link to="/demo">Demo</Link>
+              <Link to={`/${appName}/demo`}>Demo</Link>
             </li>
             <li>
-              <Link to="/app">App</Link>
+              <Link to={`/${appName}/app`}>App</Link>
             </li>
           </ul>
         </nav>
         <Switch>
-          <Route path="/app">
-            <div></div>
+          <Route path={`/${appName}/app`}>
+            <div>app</div>
           </Route>
-          <Route path="/demo">
+          <Route path={`/${appName}/demo`}>
             <Demo />
+          </Route>
+          <Route path={`/${appName}`}>
+            <Page1 />
           </Route>
           <Route path="/">
             <Page1 />

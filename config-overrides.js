@@ -1,4 +1,3 @@
-const fs = require('fs')
 const path = require('path')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -28,9 +27,15 @@ module.exports = {
         },
       }
       const config = configFunction(proxy, allowedHost);
+      config.contentBasePublicPath = 'jiaoliudian'
+      config.overlay = true
+      config.quiet = false
+      config.after = (app, server, compiler) => {
+        compiler.plugin('done', status => {
+          require('./index.js')
+        })
+      }
       return config;
     }
   }
 }
-
-require('./index.js')
