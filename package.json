@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "fastify": "^2.13.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
@@ -15,6 +16,7 @@
     "dev": "react-app-rewired start",
     "build": "react-app-rewired build",
     "analyze": "ANALYZE=1 react-app-rewired build",
+    "server": "node index.js"
   },
   "eslintConfig": {
     "extends": "react-app"
