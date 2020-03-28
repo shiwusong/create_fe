@@ -8,6 +8,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import 'weui';
+import 'react-weui/build/packages/react-weui.css';
 
 import * as serviceWorker from './serviceWorker';
 const { appName } = require('../config')

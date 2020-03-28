@@ -13,14 +13,15 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "react-weui": "^1.2.2",
+    "weui": "1.1.0"
   },
   "scripts": {
     "dev": "react-app-rewired start",
     "start": "NODE_ENV=production node index.js",
     "build": "react-app-rewired build",
     "analyze": "ANALYZE=1 react-app-rewired build"
-
   },
   "eslintConfig": {
     "extends": "react-app"
