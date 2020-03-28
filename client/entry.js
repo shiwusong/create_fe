@@ -5,24 +5,13 @@ import Demo from './pages/demo';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import * as serviceWorker from './serviceWorker';
+import 'antd-mobile/dist/antd-mobile.css';
+
 const { appName } = require('../config');
 ReactDOM.render(
 	<React.StrictMode>
 		<Router>
 			<div>
-				<nav>
-					<ul>
-						<li>
-							<Link to={'/'}>Page1</Link>
-						</li>
-						<li>
-							<Link to={`/${appName}/demo`}>Demo</Link>
-						</li>
-						<li>
-							<Link to={`/${appName}/app`}>App</Link>
-						</li>
-					</ul>
-				</nav>
 				<Switch>
 					<Route path={`/${appName}/app`}>
 						<div>app</div>
