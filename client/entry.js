@@ -10,8 +10,7 @@ import {
 } from "react-router-dom";
 
 import * as serviceWorker from './serviceWorker';
-
-const appName = 'jiaoliudian'
+const { appName } = require('../config')
 ReactDOM.render(
   <React.StrictMode>
   <Router>

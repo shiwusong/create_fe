@@ -1,6 +1,6 @@
 const isProduction = process.env.NODE_ENV === 'production'
 const path = require('path')
-const appName = 'jiaoliudian'
+const { appName, serverPort } = require('./config')
 
 // Require the framework and instantiate it
 const fastify = require('fastify')({
@@ -32,7 +32,7 @@ fastify.get(`/${appName}/*`,  async (request, reply) => {
 fastify.register(require('./server/getaway.js'))
 
 // Run the server!
-fastify.listen(3001, function (err, address) {
+fastify.listen(serverPort, function (err, address) {
   if (err) {
     fastify.log.error(err)
     process.exit(1)
